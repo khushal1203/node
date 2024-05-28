@@ -6,14 +6,13 @@ let db = null;
 async function connectDB() {
     if (db) return db;
     try {
-        console.log('Connecting to MongoDB...');
         const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
         await client.connect();
         db = client.db('dataanant');
         console.log('Connected to MongoDB');
         return db;
     } catch (error) {
-        console.error('Error connecting to MongoDB:', error.message);
+        console.error('Error connecting to MongoDB:', error);
         throw error;
     }
 }
