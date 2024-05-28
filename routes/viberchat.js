@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         res.status(200).json(result);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ "status": false, "error": "Internal server error" });
-    }
+        res.status(500).json({ "status": false, "error": "Internal server error" });
+    }
 });
 module.exports = router;

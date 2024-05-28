@@ -1,13 +1,15 @@
 const express = require('express');
+const router = express.Router();
 const connectDB = require('./db');
 
 const app = express();
 const port = process.env.PORT || 8001;
 
+
+
 app.get('/', (req, res) => {
     res.send('Welcome to the Viber Chat API');
 });
-
 app.get('/test', async (req, res) => {
     try {
         const db = await connectDB();
@@ -21,10 +23,7 @@ app.get('/test', async (req, res) => {
     }
 });
 
-// Move router initialization to be after route definitions
-const router = require('./router');
-app.use('/', router);
-
+app.use('/',router);
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
