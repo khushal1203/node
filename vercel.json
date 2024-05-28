@@ -11,5 +11,8 @@
             "src": "/(.*)",
             "dest": "/index.js"
         }
-    ]
+    ],
+    "env": {
+        "MONGODB_URI": "mongodb://datanadminuser:jnaQTVd2mbQ3n5@195.201.195.230:27017/?authMechanism=DEFAULT"
+    }
 }
