@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const connectDB = require('../db');
 
-// Route to get data from the 'viberchat' collection
 router.get('/', async (req, res) => {
     try {
         const db = await connectDB();
