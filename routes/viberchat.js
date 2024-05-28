@@ -4,15 +4,13 @@ const connectDB = require('../db');
 
 router.get('/', async (req, res) => {
     try {
-        const db = await connectDB();
-        const viberchatCollection = db.collection('viberchat');
-        const result = await viberchatCollection.find({_id: "raidlayer"}).toArray();
-        console.log(result);
-        res.json(result);
+        const db = await connect();
+        const collection = db.collection('viberchatbot');
+        const result = await collection.find({}).toArray();
+        res.status(200).json(result);
     } catch (error) {
-        console.error('Error accessing viberchat collection:', error);
-        res.status(500).json({ message: 'Internal Server Error' });
+        console.error(error);
+        res.status(500).json({ "status": false, "error": "Internal server error" });
     }
 });
-
 module.exports = router;
